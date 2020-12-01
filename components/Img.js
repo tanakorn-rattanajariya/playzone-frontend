@@ -4,15 +4,22 @@ import PropTypes from "prop-types";
 Img.propTypes = {
   src: PropTypes.string.isRequired,
 };
-export default function Img({ src, style, width = 30, height = 30 }) {
+export default function Img({ src, style, width, height, layout = "fill" }) {
   return (
-    <div style={{ display: "inline-block", marginRight: 8 }}>
+    <div
+      style={{
+        display: "inline-block",
+        position: "relative",
+        marginRight: 8,
+        ...style,
+      }}
+    >
       <Image
-        style={{ ...style }}
         src={src}
         alt="Picture"
         width={width}
         height={height}
+        layout={layout}
       />
     </div>
   );
